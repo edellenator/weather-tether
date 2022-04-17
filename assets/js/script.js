@@ -1,7 +1,9 @@
 const btnEl = document.getElementById('city-submit');
 const cityEl = document.getElementById('city-name')
 const weatherApiKey = "04ee506db424c97fa7821658500050f4";
+var cityArr = []
 
+window.addEventListener('load', getLocalStorage)
 
 btnEl.addEventListener('click', function(event){
     event.preventDefault();
@@ -23,8 +25,21 @@ btnEl.addEventListener('click', function(event){
     .catch(function(error){
         alert('It appears that all of the satellites have crashed from the sky and we can no longer retrieve any weather data')
     });
+    
+    cityArr.push(cityInput);
+    console.log(cityArr);
+    setLocalStorage();
+    sideBarStorage(cityInput);
         
 });
+
+var sideBarStorage = function(city) {
+    const cityContainer = document.getElementById('city-container');
+    const cityEl = document.createElement('div');
+    cityEl.setAttribute('class', "p-3 card bg-secondary text-white text-center mb-3 stored-city");
+    cityEl.textContent=city;
+    cityContainer.appendChild(cityEl);
+}
 
 var getWeatherData = function(lat, lon) {
     var weatherApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + weatherApiKey;
@@ -117,4 +132,13 @@ var displayForecast = function (date, temp, wind, hum, icon) {
     }
     
 
+}
+
+var setLocalStorage = function () {
+    localStorage.setItem('cities', cityArr)
+}
+
+var getLocalStorage = function () {
+    cityArr = JSON.parse(localStorage.getItem("cities"))
+    console.log(cityArr);
 }
