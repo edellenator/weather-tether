@@ -16,26 +16,102 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/7e57b5d1d0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header class="col-12 d-flex justify-content-center">
-            <h1>Weather Dashboard</h1>
+    <div class="container-fluid">
+        <header class="col-12 d-flex justify-content-center fixed-top">
+            
         </header>
     </div>
-    <div class="wrapper">
-        <aside class="col-4" id="sidebar">
-            <h2>Search for a City:</h2>
-            <label for="text">Input City Name</label>
-            <input type="text" name="text" id="cityinput" placeholder="City Name">
-        </aside>
+  
+    <aside id="sidebarMenu" class="h-100 rounded-right float-left flex-shrink-0 d-flex flex-column p-3 text-white bg-dark col-3">
+        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white">
+            <h2> <span><img class="img-fluid" src="./assets/images/weatherLogo.svg" alt="" width="30px"></span> Search for a City:</h2>
+
+        </div>
+        <form class="flex-column">
+            <div class="form-group align-items-center text-white">
+                <label class="col-form-label" for="text">Input City Name</label>
+                <div>
+                    <input class="form-control mb-3" type="text" name="text" id="cityinput" placeholder="City Name">
+                </div>
+                <button class="btn btn-primary col-sm-12">Submit</button>
+            </div>
+        </form>
+        <div class="border-bottom border-white my-4"></div>
+        <div id="stored-cities">
+            <div id="city-name" class="p-3 card bg-secondary text-white text-center">Atlanta</div>
+        </div>     
+        <h3 class="text-center mt-auto">Weather Tether <span class="ml-3"><img src="./assets/images/weatherLogo.svg" alt="" width="20px"></span></h3>
+        
+    </aside>
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-12 jumbotron rounded-bottom ml-2 p-3">
+                <h1 class="text-primary">Weather Dashboard</h1>
+                <h2 id="city-name" class="display-3">Atlanta <span id="today">04/16/2022</span><span id="weather-icon" class="ml-2"><i class="fa-solid fa-sun"></i></span></h2>
+                <p class="lead">This is the weather for today!</p>
+                <hr class="my-4">
+                <p>Temp: <span id="temp"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Huidity: <span id="humidity"></span></p>
+                <p>UV Index: <span id="uv"></span></p>
+            </main>
+            <article class="row col-12 ml-2 justify-content-between">
+                    <h3 class="col-12">5 Day Weather Forecast</h3>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date">4/16/2022</h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-cloud"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date">4/17/2022</h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-cloud-bolt"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date">4/18/2022</h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-sun"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date">4/19/2022</h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date">4/20/2022</h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-cloud-fog"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    
+            </article>
+        </div>       
     </div>
-    <main>
+            
+    
 
-    </main>
-    <details>
-
-    </details>
 
     <script src="./assets/js/script.js"></script>
 </body>
