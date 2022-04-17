@@ -3,7 +3,7 @@ const cityEl = document.getElementById('city-name')
 const weatherApiKey = "04ee506db424c97fa7821658500050f4";
 var cityArr = []
 
-window.addEventListener('load', getLocalStorage)
+
 
 btnEl.addEventListener('click', function(event){
     event.preventDefault();
@@ -28,7 +28,7 @@ btnEl.addEventListener('click', function(event){
     
     cityArr.push(cityInput);
     console.log(cityArr);
-    setLocalStorage();
+    saveCities();
     sideBarStorage(cityInput);
         
 });
@@ -134,11 +134,24 @@ var displayForecast = function (date, temp, wind, hum, icon) {
 
 }
 
-var setLocalStorage = function () {
-    localStorage.setItem('cities', cityArr)
+var saveCities = function () {
+    localStorage.setItem('cities', JSON.stringify(cityArr))
 }
 
-var getLocalStorage = function () {
-    cityArr = JSON.parse(localStorage.getItem("cities"))
+var loadCities = function () {
+    var retrievedCities = localStorage.getItem("cities");
+
+    if (!retrievedCities) {
+        return false;
+    };
+
+    console.log('saved tasks found!');
+    console.log(retrievedCities);
+
+    retrievedCities = JSON.parse(retrievedCities);
+    console.log(retrievedCities);
+    cityArr.push(retrievedCities);
     console.log(cityArr);
 }
+
+loadCities();
