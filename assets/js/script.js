@@ -30,7 +30,7 @@ btnEl.addEventListener('click', function(event){
     console.log(cityArr);
     saveCities();
     sideBarStorage(cityInput);
-    cityInput.value = "";
+    event.target.reset();
         
 });
 
