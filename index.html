@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Perfect Day
+    </title>
+    <link rel="icon" href="./assets/images/weatherLogo.svg" type="image/icon type">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/7e57b5d1d0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="col-12 d-flex justify-content-center fixed-top">
+            
+        </header>
+    </div>
+  
+    <aside id="sidebarMenu" class="h-100 rounded-right float-left flex-shrink-0 d-flex flex-column p-3 text-white bg-dark col-3">
+        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white">
+            <h2> <span><img class="img-fluid" src="./assets/images/weatherLogo.svg" alt="" width="30px"></span> Search for a City:</h2>
+
+        </div>
+        <form class="flex-column">
+            <div class="form-group align-items-center text-white">
+                <label class="col-form-label" for="text">Input City Name</label>
+                <div>
+                    <input class="form-control mb-3" type="text" name="text" id="city-input" placeholder="City Name">
+                </div>
+                <button id="city-submit" class="btn btn-primary col-sm-12">Submit</button>
+            </div>
+        </form>
+        <div class="border-bottom border-white my-4"></div>
+        <div id="city-container">
+            
+        </div>     
+        <h3 class="text-center mt-auto">Weather Tether <span class="ml-3"><img src="./assets/images/weatherLogo.svg" alt="" width="20px"></span></h3>
+        
+    </aside>
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-12 jumbotron rounded-bottom ml-2 p-3">
+                <h1 class="text-primary">Weather Dashboard</h1>
+                <h2 class="display-3">
+                    <span id="city-name"></span>
+                    <span id="today"></span>
+                    <span id="weather-icon" class="ml-2"></span>
+                </h2>
+                <p class="lead">This is the weather for today!</p>
+                <hr class="my-4">
+                <p>Temp: <span id="temp"></span>&#8457</p>
+                <p>Wind: <span id="wind"></span>MPH</p>
+                <p>Humidity: <span id="humidity"></span>%</p>
+                <p>UV Index: <span id="uv"></span></p>
+            </main>
+            <article class="row col-12 ml-2 justify-content-between">
+                    <h3 class="col-12">5 Day Weather Forecast</h3>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date"></h5>
+                            <p class="card-text fore-icon"></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date"></h5>
+                            <p class="card-text fore-icon"></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date"></h5>
+                            <p class="card-text fore-icon"></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date"></h5>
+                            <p class="card-text fore-icon"></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    <div class="weather-card card col-2 rounded">
+                        <div class="card-body">
+                            <h5 class="card-title fore-date"></h5>
+                            <p class="card-text fore-icon"><i class="fa-solid fa-cloud-fog"></i></p>
+                            <p class="card-text">Temp: <span class="fore-temp"></span></p>
+                            <p class="card-text">Wind: <span class="fore-wind"></span></p>
+                            <p class="card-text">Humidity: <span class="fore-humidity"></span></p>
+                        </div>
+                    </div>
+                    
+            </article>
+        </div>       
+    </div>
+            
+    
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
