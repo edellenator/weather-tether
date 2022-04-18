@@ -1,6 +1,11 @@
 body {
     box-sizing: border-box;
 }
-header {
-    z-index: 1000;
+
+.stored-city {
+    cursor: pointer;
+}
+
+.btn-orange {
+    background-color: rgb(255, 145, 0);
 }

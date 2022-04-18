@@ -30,6 +30,7 @@ btnEl.addEventListener('click', function(event){
     console.log(cityArr);
     saveCities();
     sideBarStorage(cityInput);
+    cityInput.value = "";
         
 });
 
@@ -39,6 +40,32 @@ var sideBarStorage = function(city) {
     cityEl.setAttribute('class', "p-3 card bg-secondary text-white text-center mb-3 stored-city");
     cityEl.textContent=city;
     cityContainer.appendChild(cityEl);
+    const cityBtn = cityContainer.querySelectorAll('.stored-city')
+    for (var i = 0; i < cityBtn.length; i++) {
+        cityBtn[i].setAttribute('onclick', 'storedCitySelect(this)')
+    }
+}
+
+var storedCitySelect = function(select) {
+    var citySelect = select.textContent;
+    cityEl.textContent = citySelect
+    var cityArray = citySelect.split(' ');
+    var cityString = cityArray.join('+');
+    var geoApiUrl = "https://nominatim.openstreetmap.org/search.php?=&city=" + cityString + "&format=jsonv2&limit=1"
+    fetch(geoApiUrl).then(function(response){
+        if (response.ok) {
+            response.json().then(function(city) {
+                getWeatherData(city[0].lat, city[0].lon);
+            })
+        }
+        else {
+            alert('city name is invalid')
+        }
+    })
+    .catch(function(error){
+        alert('It appears that all of the satellites have crashed from the sky and we can no longer retrieve any weather data')
+    });
+
 }
 
 var getWeatherData = function(lat, lon) {
@@ -107,6 +134,18 @@ var displayJumbotron = function(temp, wind, hum, uv, date, icon) {
     windEl.textContent = wind;
     humEl.textContent = hum;
     uvEl.textContent = uv;
+    if (uv < 3) {
+        uvEl.setAttribute('class', 'btn btn-success ml-2');
+    }
+    else if (uv >= 3 && uv < 6) {
+        uvEl.setAttribute('class', 'btn btn-warning ml-2');
+    }
+    else if (uv >= 6 && uv < 8) {
+        uvEl.setAttribute('class', 'btn btn-orange ml-2');
+    }
+    else {
+        uvEl.setAttribute('class', 'btn btn-danger ml-2');
+    }
 }
 
 var displayForecast = function (date, temp, wind, hum, icon) {
@@ -152,6 +191,9 @@ var loadCities = function () {
     console.log(retrievedCities);
     cityArr.push(retrievedCities);
     console.log(cityArr);
+    for (var i = 0; i < retrievedCities.length; i++) {
+        sideBarStorage(retrievedCities[i])
+    }
 }
 
 loadCities();
