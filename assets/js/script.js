@@ -30,7 +30,6 @@ btnEl.addEventListener('click', function(event){
     console.log(cityArr);
     saveCities();
     sideBarStorage(cityInput);
-    event.target.reset();
         
 });
 
@@ -196,4 +195,4 @@ var loadCities = function () {
     }
 }
 
-loadCities();
+window.onload = loadCities();
